@@ -39,7 +39,7 @@ public class HelloProcessor {
 
     private static final Logger LOGGER = Logger.getLogger(HelloProcessor.class.getName());
 
-    @RequestProcessing(value = {"/", "/index", "/**/ant/*/path"}, method = HTTPRequestMethod.GET)
+    @RequestProcessing(value = {"/", "/index","/index.*", "/**/ant/*/path"}, method = HTTPRequestMethod.GET)
     public void index(final HTTPRequestContext context) {
         LOGGER.entering(HelloProcessor.class.getSimpleName(), "index");
 
