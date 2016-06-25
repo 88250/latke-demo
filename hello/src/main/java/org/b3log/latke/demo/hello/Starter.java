@@ -1,3 +1,5 @@
+package org.b3log.latke.demo.hello;
+
 /*
  * Copyright (c) 2010-2016, b3log.org & hacpai.com
  *
