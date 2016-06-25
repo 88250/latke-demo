@@ -49,23 +49,6 @@
                     <header>../src/main/resources/etc/header.txt</header>
                 </configuration>
             </plugin>
-            
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.7.v20150116</version>
-                <configuration>
-                    <httpConnector>
-                        <port>8080</port>
-                    </httpConnector>
-                    <stopKey>stop</stopKey>
-                    <stopPort>8081</stopPort>
-                    <webAppConfig>
-                        <contextPath>/</contextPath>
-                    </webAppConfig>
-                    <scanIntervalSeconds>1</scanIntervalSeconds>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
