@@ -16,8 +16,6 @@
 package org.b3log.latke.demo.hello.processor;
 
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import org.b3log.latke.demo.hello.service.UserService;
@@ -38,8 +36,6 @@ import org.b3log.latke.util.Strings;
 @RequestProcessor
 public class RegisterProcessor {
 
-    private static final Logger LOGGER = Logger.getLogger(RegisterProcessor.class.getName());
-
     @Inject
     private UserService userService;
 
@@ -53,7 +49,6 @@ public class RegisterProcessor {
 
         final String name = request.getParameter("name");
         if (!Strings.isEmptyOrNull(name)) {
-            LOGGER.log(Level.FINER, "Name[{0}]", name);
             dataModel.put("name", name);
 
             userService.saveUser(name, 3);

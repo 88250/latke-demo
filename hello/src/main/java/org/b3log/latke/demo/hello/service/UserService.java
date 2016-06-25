@@ -32,9 +32,9 @@ import org.json.JSONObject;
  */
 @Service
 public class UserService {
-    
+
     private static final Logger LOGGER = Logger.getLogger(UserService.class.getName());
-    
+
     @Inject
     private UserRepository userRepository;
 
@@ -50,7 +50,7 @@ public class UserService {
             userId = userRepository.add(user);
         } catch (final RepositoryException e) {
             LOGGER.log(Level.ERROR, "Saves user failed", e);
-            
+
             // Throws an exception to rollback transaction
             throw new IllegalStateException("Saves user failed");
         }

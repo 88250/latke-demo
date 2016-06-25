@@ -30,19 +30,15 @@ import org.b3log.latke.util.Strings;
 
 /**
  * Hello.
- * 
+ *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
  * @version 1.0.0.4, Oct 9, 2012
  */
 @RequestProcessor
 public class HelloProcessor {
 
-    private static final Logger LOGGER = Logger.getLogger(HelloProcessor.class.getName());
-
-    @RequestProcessing(value = {"/", "/index","/index.*", "/**/ant/*/path"}, method = HTTPRequestMethod.GET)
+    @RequestProcessing(value = {"/", "/index", "/index.*", "/**/ant/*/path"}, method = HTTPRequestMethod.GET)
     public void index(final HTTPRequestContext context) {
-        LOGGER.entering(HelloProcessor.class.getSimpleName(), "index");
-
         final AbstractFreeMarkerRenderer render = new FreeMarkerRenderer();
         context.setRenderer(render);
 
@@ -50,8 +46,6 @@ public class HelloProcessor {
         final Map<String, Object> dataModel = render.getDataModel();
 
         dataModel.put("greeting", "Hello, Latke!");
-
-        LOGGER.exiting(HelloProcessor.class.getSimpleName(), "index");
     }
 
     @RequestProcessing(value = "/greeting", method = {HTTPRequestMethod.GET, HTTPRequestMethod.POST})
@@ -66,7 +60,6 @@ public class HelloProcessor {
 
         final String name = request.getParameter("name");
         if (!Strings.isEmptyOrNull(name)) {
-            LOGGER.log(Level.FINER, "Name[{0}]", name);
             dataModel.put("name", name);
         }
     }
