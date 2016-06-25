@@ -28,9 +28,6 @@ import org.b3log.latke.repository.jdbc.util.JdbcRepositories;
 @Repository
 public class UserRepository extends AbstractRepository {
 
-    /**
-     * Constructs a user repository.
-     */
     public UserRepository() {
         super("user");
 

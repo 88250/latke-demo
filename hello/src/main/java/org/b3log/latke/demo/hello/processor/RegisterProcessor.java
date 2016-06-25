@@ -31,21 +31,15 @@ import org.b3log.latke.util.Strings;
 
 /**
  * Register.
- * 
+ *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
  * @version 1.0.0.1, Oct 9, 2012
  */
 @RequestProcessor
 public class RegisterProcessor {
 
-    /**
-     * Logger.
-     */
     private static final Logger LOGGER = Logger.getLogger(RegisterProcessor.class.getName());
 
-    /**
-     * User service.
-     */
     @Inject
     private UserService userService;
 

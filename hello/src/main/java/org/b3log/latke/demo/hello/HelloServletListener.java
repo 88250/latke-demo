@@ -17,9 +17,6 @@ import org.b3log.latke.util.freemarker.Templates;
  */
 public class HelloServletListener extends AbstractServletListener {
 
-    /**
-     * Logger.
-     */
     private static final Logger LOGGER = Logger.getLogger(HelloServletListener.class.getName());
 
     @Override
