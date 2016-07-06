@@ -15,7 +15,7 @@ package org.b3log.latke.demo.hello;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import java.io.File;
 import org.b3log.latke.Latkes;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
@@ -24,12 +24,12 @@ import org.eclipse.jetty.webapp.WebAppContext;
  * Starter with embedded Jetty, <a href="https://github.com/b3log/solo/issues/12037">standalone mode</a>.
  *
  * <ul>
- * <li>Windows: java -cp WEB-INF/lib/*;WEB-INF/classes org.b3log.solo.Starter</li>
- * <li>Unix-like: java -cp WEB-INF/lib/*:WEB-INF/classes org.b3log.solo.Starter</li>
+ * <li>Windows: java -cp WEB-INF/lib/*;WEB-INF/classes org.b3log.latke.demo.hello.Starter</li>
+ * <li>Unix-like: java -cp WEB-INF/lib/*:WEB-INF/classes org.b3log.latke.demo.hello.Starter</li>
  * </ul>
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.0, Jan 12, 2016
+ * @version 1.0.1.0, Jul 6, 2016
  */
 public class Starter {
 
@@ -37,20 +37,26 @@ public class Starter {
         Latkes.setScanPath("org.b3log.latke.demo.hello"); // For Latke IoC
         Latkes.initRuntimeEnv();
 
-        String path = Thread.currentThread().getContextClassLoader().getResource("").getFile();
-        path = path.replace("target/classes/", "");
-        path = path.replace("classes/", "");
-        String web = path + "src/main/webapp/";
+        String webappDirLocation = "src/main/webapp/"; // POM structure in dev env
+        final File file = new File(webappDirLocation);
+        if (!file.exists()) {
+            webappDirLocation = "."; // production environment
+        }
 
-        final Server server = new Server(8080);
+        final Server server = new Server(Integer.valueOf(Latkes.getServerPort()));
         final WebAppContext root = new WebAppContext();
-        root.setParentLoaderPriority(true);
+        root.setParentLoaderPriority(true); // Use parent class loader
         root.setContextPath("/");
-        root.setResourceBase(web);
-        root.setDescriptor(web + "/WEB-INF/web.xml");
-
+        root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
+        root.setResourceBase(webappDirLocation);
         server.setHandler(root);
-        server.start();
-        server.join();
+
+        try {
+            server.start();
+        } catch (final Exception e) {
+            e.printStackTrace();
+
+            System.exit(-1);
+        }
     }
 }

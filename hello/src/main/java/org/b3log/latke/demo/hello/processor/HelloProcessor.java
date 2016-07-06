@@ -17,8 +17,6 @@ package org.b3log.latke.demo.hello.processor;
 
 import java.util.Date;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.b3log.latke.servlet.HTTPRequestContext;
 import org.b3log.latke.servlet.HTTPRequestMethod;
@@ -32,7 +30,7 @@ import org.b3log.latke.util.Strings;
  * Hello.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.4, Oct 9, 2012
+ * @version 1.0.0.5, Jul 6, 2016
  */
 @RequestProcessor
 public class HelloProcessor {
