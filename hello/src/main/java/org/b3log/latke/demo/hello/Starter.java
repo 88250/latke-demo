@@ -14,7 +14,8 @@ import org.eclipse.jetty.webapp.WebAppContext;
  * </ul>
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.1.0, Jul 6, 2016
+ * @author <a href="https://applehater.cn">zonghua</a>
+ * @version 1.0.1.1, Sept 22, 2016
  */
 public class Starter {
 
@@ -22,7 +23,8 @@ public class Starter {
         Latkes.setScanPath("org.b3log.latke.demo.hello"); // For Latke IoC
         Latkes.initRuntimeEnv();
 
-        String webappDirLocation = "src/main/webapp/"; // POM structure in dev env
+        String classesPath = ClassLoader.getSystemResource("").getPath(); // Real path including maven sub folder
+        String webappDirLocation = classesPath.replace("target/classes/","src/main/webapp/"); // POM structure in dev env
         final File file = new File(webappDirLocation);
         if (!file.exists()) {
             webappDirLocation = "."; // production environment
