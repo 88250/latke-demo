@@ -1,9 +1,7 @@
 package org.b3log.latke.demo.hello.processor;
 
-import java.util.Map;
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import org.b3log.latke.demo.hello.service.UserService;
+import org.b3log.latke.ioc.inject.Inject;
 import org.b3log.latke.servlet.HTTPRequestContext;
 import org.b3log.latke.servlet.HTTPRequestMethod;
 import org.b3log.latke.servlet.annotation.RequestProcessing;
@@ -12,11 +10,14 @@ import org.b3log.latke.servlet.renderer.freemarker.AbstractFreeMarkerRenderer;
 import org.b3log.latke.servlet.renderer.freemarker.FreeMarkerRenderer;
 import org.b3log.latke.util.Strings;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
+
 /**
  * Register.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.1, Oct 9, 2012
+ * @version 1.0.0.2, Apr 5, 2018
  */
 @RequestProcessor
 public class RegisterProcessor {
