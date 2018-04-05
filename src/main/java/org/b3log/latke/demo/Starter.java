@@ -1,4 +1,4 @@
-package org.b3log.latke.demo.hello;
+package org.b3log.latke.demo;
 
 import org.b3log.latke.Latkes;
 import org.eclipse.jetty.server.Server;
@@ -10,8 +10,8 @@ import java.io.File;
  * Starter with embedded Jetty, <a href="https://github.com/b3log/solo/issues/12037">standalone mode</a>.
  *
  * <ul>
- * <li>Windows: java -cp "WEB-INF/lib/*;WEB-INF/classes" org.b3log.latke.demo.hello.Starter</li>
- * <li>Unix-like: java -cp "WEB-INF/lib/*:WEB-INF/classes" org.b3log.latke.demo.hello.Starter</li>
+ * <li>Windows: java -cp "WEB-INF/lib/*;WEB-INF/classes" Starter</li>
+ * <li>Unix-like: java -cp "WEB-INF/lib/*:WEB-INF/classes" Starter</li>
  * </ul>
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>

@@ -1,6 +1,6 @@
-package org.b3log.latke.demo.hello.processor;
+package org.b3log.latke.demo.processor;
 
-import org.b3log.latke.demo.hello.service.UserService;
+import org.b3log.latke.demo.service.UserService;
 import org.b3log.latke.ioc.inject.Inject;
 import org.b3log.latke.servlet.HTTPRequestContext;
 import org.b3log.latke.servlet.HTTPRequestMethod;
@@ -29,7 +29,6 @@ public class RegisterProcessor {
     public void register(final HTTPRequestContext context, final HttpServletRequest request) {
         final AbstractFreeMarkerRenderer render = new FreeMarkerRenderer();
         context.setRenderer(render);
-
         render.setTemplateName("register.ftl");
         final Map<String, Object> dataModel = render.getDataModel();
 

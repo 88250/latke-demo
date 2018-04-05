@@ -1,4 +1,4 @@
-package org.b3log.latke.demo.hello;
+package org.b3log.latke.demo;
 
 import org.b3log.latke.Latkes;
 import org.b3log.latke.logging.Logger;
@@ -22,7 +22,7 @@ public class HelloServletListener extends AbstractServletListener {
 
     @Override
     public void contextInitialized(final ServletContextEvent servletContextEvent) {
-        Latkes.setScanPath("org.b3log.latke.demo.hello");
+        Latkes.setScanPath("org.b3log.latke.demo");
         super.contextInitialized(servletContextEvent);
 
         final ServletContext servletContext = servletContextEvent.getServletContext();

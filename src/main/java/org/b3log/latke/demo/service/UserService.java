@@ -1,6 +1,6 @@
-package org.b3log.latke.demo.hello.service;
+package org.b3log.latke.demo.service;
 
-import org.b3log.latke.demo.hello.repository.UserRepository;
+import org.b3log.latke.demo.repository.UserRepository;
 import org.b3log.latke.ioc.inject.Inject;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
