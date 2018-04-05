@@ -14,15 +14,15 @@ import javax.servlet.http.HttpSessionEvent;
  * Hello servlet listener.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.0, Jan 8, 2016
+ * @version 1.0.0.1, Apr 5, 2018
  */
 public class HelloServletListener extends AbstractServletListener {
 
-    private static final Logger LOGGER = Logger.getLogger(HelloServletListener.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(HelloServletListener.class);
 
     @Override
     public void contextInitialized(final ServletContextEvent servletContextEvent) {
-        Latkes.setScanPath("org.b3log.latke.demo");
+        Latkes.setScanPath(HelloServletListener.class.getPackage().getName());
         super.contextInitialized(servletContextEvent);
 
         final ServletContext servletContext = servletContextEvent.getServletContext();

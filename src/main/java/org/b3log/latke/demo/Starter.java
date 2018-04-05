@@ -21,9 +21,6 @@ import java.io.File;
 public class Starter {
 
     public static void main(String[] args) throws Exception {
-        Latkes.setScanPath("org.b3log.latke.demo.hello"); // For Latke IoC
-        Latkes.initRuntimeEnv();
-
         String classesPath = ClassLoader.getSystemResource("").getPath(); // Real path including maven sub folder
         String webappDirLocation = classesPath.replace("target/classes/", "src/main/webapp/"); // POM structure in dev env
         final File file = new File(webappDirLocation);
