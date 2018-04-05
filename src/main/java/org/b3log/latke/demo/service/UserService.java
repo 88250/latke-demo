@@ -18,7 +18,7 @@ import org.json.JSONObject;
 @Service
 public class UserService {
 
-    private static final Logger LOGGER = Logger.getLogger(UserService.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(UserService.class);
 
     @Inject
     private UserRepository userRepository;
