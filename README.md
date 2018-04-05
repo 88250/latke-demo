@@ -13,6 +13,6 @@
 
 ## 数据库
 
-本示例使用了内嵌的 H2 作为数据库，默认数据库文件路径为 `~/latke-h2-demo/db`，如有需要请在 local.properties 中进行修改。
+本示例使用了内嵌的 H2 作为数据库，数据库文件默认路径为 `~/latke-h2-demo/db`，如有需要请在 local.properties 中进行修改。
 
 
