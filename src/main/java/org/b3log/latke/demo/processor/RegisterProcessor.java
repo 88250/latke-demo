@@ -1,5 +1,6 @@
 package org.b3log.latke.demo.processor;
 
+import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.demo.service.UserService;
 import org.b3log.latke.ioc.inject.Inject;
 import org.b3log.latke.servlet.HTTPRequestContext;
@@ -8,7 +9,6 @@ import org.b3log.latke.servlet.annotation.RequestProcessing;
 import org.b3log.latke.servlet.annotation.RequestProcessor;
 import org.b3log.latke.servlet.renderer.freemarker.AbstractFreeMarkerRenderer;
 import org.b3log.latke.servlet.renderer.freemarker.FreeMarkerRenderer;
-import org.b3log.latke.util.Strings;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -33,7 +33,7 @@ public class RegisterProcessor {
         final Map<String, Object> dataModel = render.getDataModel();
 
         final String name = request.getParameter("name");
-        if (!Strings.isEmptyOrNull(name)) {
+        if (StringUtils.isNotBlank(name)) {
             dataModel.put("name", name);
 
             userService.saveUser(name, 3);

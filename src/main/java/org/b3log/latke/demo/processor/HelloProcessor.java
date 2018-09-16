@@ -1,5 +1,6 @@
 package org.b3log.latke.demo.processor;
 
+import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.servlet.HTTPRequestContext;
@@ -9,7 +10,6 @@ import org.b3log.latke.servlet.annotation.RequestProcessor;
 import org.b3log.latke.servlet.renderer.freemarker.AbstractFreeMarkerRenderer;
 import org.b3log.latke.servlet.renderer.freemarker.FreeMarkerRenderer;
 import org.b3log.latke.util.Requests;
-import org.b3log.latke.util.Strings;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -47,7 +47,7 @@ public class HelloProcessor {
         final Map<String, Object> dataModel = render.getDataModel();
         dataModel.put("time", new Date());
         final String name = request.getParameter("name");
-        if (!Strings.isEmptyOrNull(name)) {
+        if (StringUtils.isNotBlank(name)) {
             dataModel.put("name", name);
         }
     }
