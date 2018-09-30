@@ -3,9 +3,7 @@ package org.b3log.latke.demo;
 import org.b3log.latke.Latkes;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.servlet.AbstractServletListener;
-import org.b3log.latke.util.freemarker.Templates;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.http.HttpSessionEvent;
@@ -14,7 +12,8 @@ import javax.servlet.http.HttpSessionEvent;
  * Hello servlet listener.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.1, Apr 5, 2018
+ * @version 1.0.0.2, Sep 30, 2018
+ * @since 2.0.0
  */
 public class HelloServletListener extends AbstractServletListener {
 
@@ -24,15 +23,6 @@ public class HelloServletListener extends AbstractServletListener {
     public void contextInitialized(final ServletContextEvent servletContextEvent) {
         Latkes.setScanPath(HelloServletListener.class.getPackage().getName());
         super.contextInitialized(servletContextEvent);
-
-        final ServletContext servletContext = servletContextEvent.getServletContext();
-
-        try {
-            Templates.MAIN_CFG.setServletContextForTemplateLoading(servletContext, "skins/classic");
-            Templates.MOBILE_CFG.setServletContextForTemplateLoading(servletContext, "skins/classic");
-        } catch (final Exception e) {
-            throw new IllegalStateException("Can not load the default template directory [skins/classic]");
-        }
 
         LOGGER.info("Initialized the context");
     }

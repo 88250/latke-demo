@@ -1,7 +1,7 @@
 package org.b3log.latke.demo.service;
 
 import org.b3log.latke.demo.repository.UserRepository;
-import org.b3log.latke.ioc.inject.Inject;
+import org.b3log.latke.ioc.Inject;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.repository.RepositoryException;
@@ -13,7 +13,8 @@ import org.json.JSONObject;
  * User service.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.1, Apr 5, 2018
+ * @version 1.0.0.2, Sep 30, 2018
+ * @since 2.0.0
  */
 @Service
 public class UserService {
