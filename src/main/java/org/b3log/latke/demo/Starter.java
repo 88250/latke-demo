@@ -1,6 +1,5 @@
 package org.b3log.latke.demo;
 
-import org.b3log.latke.Latkes;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
@@ -16,7 +15,7 @@ import java.io.File;
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
  * @author <a href="https://applehater.cn">zonghua</a>
- * @version 1.0.1.12, Apr 5, 2018
+ * @version 1.0.1.13, Oct 23, 2018
  */
 public class Starter {
 
@@ -28,7 +27,7 @@ public class Starter {
             webappDirLocation = "."; // production environment
         }
 
-        final Server server = new Server(Integer.valueOf(Latkes.getServerPort()));
+        final Server server = new Server(8080);
         final WebAppContext root = new WebAppContext();
         root.setParentLoaderPriority(true); // Use parent class loader
         root.setContextPath("/");
