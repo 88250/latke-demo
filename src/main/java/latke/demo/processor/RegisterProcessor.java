@@ -31,7 +31,7 @@ public class RegisterProcessor {
         render.setTemplateName("register.ftl");
     }
 
-    public Object register(final HTTPRequestContext context) {
+    public void register(final HTTPRequestContext context) {
         final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
         context.setRenderer(render);
         render.setTemplateName("register.ftl");
@@ -44,7 +44,5 @@ public class RegisterProcessor {
 
             userService.saveUser(name, 3);
         }
-
-        return null;
     }
 }

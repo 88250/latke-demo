@@ -1,7 +1,7 @@
 package latke.demo;
 
-import org.b3log.latke.Latkes;
 import latke.demo.processor.RegisterProcessor;
+import org.b3log.latke.Latkes;
 import org.b3log.latke.ioc.BeanManager;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.servlet.AbstractServletListener;
@@ -27,8 +27,9 @@ public class HelloServletListener extends AbstractServletListener {
         Latkes.setScanPath(HelloServletListener.class.getPackage().getName());
         super.contextInitialized(servletContextEvent);
 
-        final BeanManager beanManager= BeanManager.getInstance();
+        final BeanManager beanManager = BeanManager.getInstance();
         final RegisterProcessor registerProcessor = beanManager.getReference(RegisterProcessor.class);
+        // 附加一个使用函数式路由的示例
         DispatcherServlet.post("/register", registerProcessor::register);
         DispatcherServlet.mapping();
 
