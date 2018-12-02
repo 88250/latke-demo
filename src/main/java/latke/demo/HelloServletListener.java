@@ -1,8 +1,11 @@
-package org.b3log.latke.demo;
+package latke.demo;
 
 import org.b3log.latke.Latkes;
+import latke.demo.processor.RegisterProcessor;
+import org.b3log.latke.ioc.BeanManager;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.servlet.AbstractServletListener;
+import org.b3log.latke.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletRequestEvent;
@@ -23,6 +26,11 @@ public class HelloServletListener extends AbstractServletListener {
     public void contextInitialized(final ServletContextEvent servletContextEvent) {
         Latkes.setScanPath(HelloServletListener.class.getPackage().getName());
         super.contextInitialized(servletContextEvent);
+
+        final BeanManager beanManager= BeanManager.getInstance();
+        final RegisterProcessor registerProcessor = beanManager.getReference(RegisterProcessor.class);
+        DispatcherServlet.post("/register", registerProcessor::register);
+        DispatcherServlet.mapping();
 
         LOGGER.info("Initialized the context");
     }

@@ -1,4 +1,4 @@
-package org.b3log.latke.demo.processor;
+package latke.demo.processor;
 
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.logging.Level;

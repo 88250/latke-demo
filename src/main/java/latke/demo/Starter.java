@@ -1,4 +1,4 @@
-package org.b3log.latke.demo;
+package latke.demo;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;

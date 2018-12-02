@@ -1,4 +1,4 @@
-package org.b3log.latke.demo.processor;
+package latke.demo.processor;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

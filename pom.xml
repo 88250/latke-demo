@@ -9,13 +9,15 @@
     <name>Latke Demo</name>
 
     <properties>
-        <latke.version>2.4.29</latke.version>
+        <latke.version>2.4.30-SNAPSHOT</latke.version>
 
         <servlet.version>3.1.0</servlet.version>
         <slf4j.version>1.7.24</slf4j.version>
         <jetty.version>9.4.12.v20180830</jetty.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
     <dependencies>

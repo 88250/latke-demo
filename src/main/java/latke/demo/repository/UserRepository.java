@@ -1,4 +1,4 @@
-package org.b3log.latke.demo.repository;
+package latke.demo.repository;
 
 import org.b3log.latke.repository.AbstractRepository;
 import org.b3log.latke.repository.annotation.Repository;
