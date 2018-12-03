@@ -10,7 +10,6 @@ import org.b3log.latke.servlet.annotation.RequestProcessor;
 import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
 import org.b3log.latke.util.Requests;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Map;
 
@@ -39,14 +38,14 @@ public class HelloProcessor {
     }
 
     @RequestProcessing(value = "/greeting", method = {HTTPRequestMethod.GET, HTTPRequestMethod.POST})
-    public void greeting(final HTTPRequestContext context, final HttpServletRequest request) {
+    public void greeting(final HTTPRequestContext context) {
         final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
         context.setRenderer(render);
         render.setTemplateName("hello.ftl");
 
         final Map<String, Object> dataModel = render.getDataModel();
         dataModel.put("time", new Date());
-        final String name = request.getParameter("name");
+        final String name = context.param("name");
         if (StringUtils.isNotBlank(name)) {
             dataModel.put("name", name);
         }
