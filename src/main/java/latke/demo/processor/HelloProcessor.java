@@ -3,8 +3,8 @@ package latke.demo.processor;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
-import org.b3log.latke.servlet.HTTPRequestContext;
-import org.b3log.latke.servlet.HTTPRequestMethod;
+import org.b3log.latke.servlet.RequestContext;
+import org.b3log.latke.servlet.HttpMethod;
 import org.b3log.latke.servlet.annotation.RequestProcessing;
 import org.b3log.latke.servlet.annotation.RequestProcessor;
 import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
@@ -25,8 +25,8 @@ public class HelloProcessor {
 
     private static final Logger LOGGER = Logger.getLogger(HelloProcessor.class);
 
-    @RequestProcessing(value = {"/", "/index", "/index.*", "/**/ant/*/path"}, method = HTTPRequestMethod.GET)
-    public void index(final HTTPRequestContext context) {
+    @RequestProcessing(value = {"/", "/index"}, method = HttpMethod.GET)
+    public void index(final RequestContext context) {
         final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
         context.setRenderer(render);
         render.setTemplateName("index.ftl");
@@ -37,8 +37,8 @@ public class HelloProcessor {
         Requests.log(context.getRequest(), Level.DEBUG, LOGGER);
     }
 
-    @RequestProcessing(value = "/greeting", method = {HTTPRequestMethod.GET, HTTPRequestMethod.POST})
-    public void greeting(final HTTPRequestContext context) {
+    @RequestProcessing(value = "/greeting", method = {HttpMethod.GET, HttpMethod.POST})
+    public void greeting(final RequestContext context) {
         final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
         context.setRenderer(render);
         render.setTemplateName("hello.ftl");

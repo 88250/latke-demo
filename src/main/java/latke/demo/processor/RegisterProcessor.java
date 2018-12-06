@@ -3,7 +3,7 @@ package latke.demo.processor;
 import latke.demo.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.ioc.Inject;
-import org.b3log.latke.servlet.HTTPRequestContext;
+import org.b3log.latke.servlet.RequestContext;
 import org.b3log.latke.servlet.annotation.RequestProcessing;
 import org.b3log.latke.servlet.annotation.RequestProcessor;
 import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
@@ -25,13 +25,13 @@ public class RegisterProcessor {
     private UserService userService;
 
     @RequestProcessing(value = "/register")
-    public void showRegister(final HTTPRequestContext context) {
+    public void showRegister(final RequestContext context) {
         final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
         context.setRenderer(render);
         render.setTemplateName("register.ftl");
     }
 
-    public void register(final HTTPRequestContext context) {
+    public void register(final RequestContext context) { // 函数式路由，在 HelloServletListener 中配置
         final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
         context.setRenderer(render);
         render.setTemplateName("register.ftl");

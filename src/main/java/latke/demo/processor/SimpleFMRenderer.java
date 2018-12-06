@@ -6,7 +6,7 @@ import freemarker.template.TemplateExceptionHandler;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.servlet.AbstractServletListener;
-import org.b3log.latke.servlet.HTTPRequestContext;
+import org.b3log.latke.servlet.RequestContext;
 import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
 
 import javax.servlet.ServletContext;
@@ -38,10 +38,10 @@ public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
         SKIN.setLogTemplateExceptions(false);
     }
 
-    protected void beforeRender(HTTPRequestContext context) {
+    protected void beforeRender(RequestContext context) {
     }
 
-    protected void afterRender(HTTPRequestContext context) {
+    protected void afterRender(RequestContext context) {
     }
 
     protected Template getTemplate() {
