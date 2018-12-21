@@ -6,6 +6,7 @@ import org.b3log.latke.ioc.Inject;
 import org.b3log.latke.servlet.RequestContext;
 import org.b3log.latke.servlet.annotation.RequestProcessing;
 import org.b3log.latke.servlet.annotation.RequestProcessor;
+import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -14,7 +15,7 @@ import java.util.Map;
  * Register.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.1.0.0, Dec 2, 2018
+ * @version 1.2.0.0, Dec 21, 2018
  * @since 2.0.0
  */
 @RequestProcessor
@@ -39,5 +40,12 @@ public class RegisterProcessor {
 
             userService.saveUser(name, 3);
         }
+    }
+
+    @RequestProcessing("/var/{pathVar}")
+    public void paraPathVar(final RequestContext context) {
+        final String paraVar = context.param("paraVar");
+        final String pathVar = context.pathVar("pathVar");
+        context.renderJSON(new JSONObject().put("paraVar", paraVar).put("pathVar", pathVar));
     }
 }

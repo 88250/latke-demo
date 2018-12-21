@@ -4,6 +4,7 @@ import latke.demo.processor.RegisterProcessor;
 import org.b3log.latke.Latkes;
 import org.b3log.latke.ioc.BeanManager;
 import org.b3log.latke.logging.Logger;
+import org.b3log.latke.repository.jdbc.util.JdbcRepositories;
 import org.b3log.latke.servlet.AbstractServletListener;
 import org.b3log.latke.servlet.DispatcherServlet;
 
@@ -32,6 +33,9 @@ public class HelloServletListener extends AbstractServletListener {
         // 附加一个使用函数式路由的示例
         DispatcherServlet.post("/register", registerProcessor::register);
         DispatcherServlet.mapping();
+
+        // 初始化数据库表
+        JdbcRepositories.initAllTables();
 
         LOGGER.info("Initialized the context");
     }
