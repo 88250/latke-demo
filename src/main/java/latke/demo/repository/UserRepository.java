@@ -20,7 +20,8 @@ public class UserRepository extends AbstractRepository {
     }
 
     public JSONObject getByName(final String name) throws RepositoryException {
-        final List<JSONObject> records = getList(new Query().setFilter(new PropertyFilter("name", FilterOperator.EQUAL, name)));
+        final List<JSONObject> records = getList(new Query().
+                setFilter(new PropertyFilter("name", FilterOperator.EQUAL, name)));
         if (records.isEmpty()) {
             return null;
         }
