@@ -38,6 +38,15 @@ public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
         SKIN.setLogTemplateExceptions(false);
     }
 
+    /**
+     * Constructs a simple FreeMarker template with the specified template name.
+     *
+     * @param templateName the specified template name
+     */
+    public SimpleFMRenderer(final String templateName) {
+        setTemplateName(templateName);
+    }
+
     protected void beforeRender(RequestContext context) {
     }
 

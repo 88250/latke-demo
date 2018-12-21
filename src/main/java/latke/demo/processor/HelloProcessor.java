@@ -3,11 +3,10 @@ package latke.demo.processor;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
-import org.b3log.latke.servlet.RequestContext;
 import org.b3log.latke.servlet.HttpMethod;
+import org.b3log.latke.servlet.RequestContext;
 import org.b3log.latke.servlet.annotation.RequestProcessing;
 import org.b3log.latke.servlet.annotation.RequestProcessor;
-import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
 import org.b3log.latke.util.Requests;
 
 import java.util.Date;
@@ -25,13 +24,11 @@ public class HelloProcessor {
 
     private static final Logger LOGGER = Logger.getLogger(HelloProcessor.class);
 
-    @RequestProcessing(value = {"/", "/index"}, method = HttpMethod.GET)
+    @RequestProcessing("/")
     public void index(final RequestContext context) {
-        final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
-        context.setRenderer(render);
-        render.setTemplateName("index.ftl");
+        context.setRenderer(new SimpleFMRenderer("index.ftl"));
 
-        final Map<String, Object> dataModel = render.getDataModel();
+        final Map<String, Object> dataModel = context.getRenderer().getRenderDataModel();
         dataModel.put("greeting", "Hello, Latke!");
 
         Requests.log(context.getRequest(), Level.DEBUG, LOGGER);
@@ -39,11 +36,9 @@ public class HelloProcessor {
 
     @RequestProcessing(value = "/greeting", method = {HttpMethod.GET, HttpMethod.POST})
     public void greeting(final RequestContext context) {
-        final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
-        context.setRenderer(render);
-        render.setTemplateName("hello.ftl");
+        context.setRenderer(new SimpleFMRenderer("hello.ftl"));
 
-        final Map<String, Object> dataModel = render.getDataModel();
+        final Map<String, Object> dataModel = context.getRenderer().getRenderDataModel();
         dataModel.put("time", new Date());
         final String name = context.param("name");
         if (StringUtils.isNotBlank(name)) {

@@ -6,7 +6,6 @@ import org.b3log.latke.ioc.Inject;
 import org.b3log.latke.servlet.RequestContext;
 import org.b3log.latke.servlet.annotation.RequestProcessing;
 import org.b3log.latke.servlet.annotation.RequestProcessor;
-import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -26,16 +25,12 @@ public class RegisterProcessor {
 
     @RequestProcessing(value = "/register")
     public void showRegister(final RequestContext context) {
-        final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
-        context.setRenderer(render);
-        render.setTemplateName("register.ftl");
+        context.setRenderer(new SimpleFMRenderer("register.ftl"));
     }
 
     public void register(final RequestContext context) { // 函数式路由，在 HelloServletListener 中配置
-        final AbstractFreeMarkerRenderer render = new SimpleFMRenderer();
-        context.setRenderer(render);
-        render.setTemplateName("register.ftl");
-        final Map<String, Object> dataModel = render.getDataModel();
+        context.setRenderer(new SimpleFMRenderer("register.ftl"));
+        final Map<String, Object> dataModel = context.getRenderer().getRenderDataModel();
 
         final HttpServletRequest request = context.getRequest();
         final String name = request.getParameter("name");
