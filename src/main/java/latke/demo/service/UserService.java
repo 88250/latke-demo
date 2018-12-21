@@ -37,7 +37,7 @@ public class UserService {
         } catch (final RepositoryException e) {
             LOGGER.log(Level.ERROR, "Saves user failed", e);
 
-            // Throws an exception to rollback transaction
+            // 抛出异常后框架将回滚事务
             throw new IllegalStateException("Saves user failed");
         }
 
