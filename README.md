@@ -7,7 +7,7 @@
 将项目导入 IDE，通过 `mvn install` 编译后有两种方式启动：
 
 1. `mvn jetty:run`
-2. 运行 Starter 
+2. `java -cp "target/latke-demo-2.0.0/WEB-INF/lib/*;target/latke-demo-2.0.0/WEB-INF/classes" latke.demo.Starter` （运行 Starter）
 
 打开浏览器访问 `http://localhost:8080`。
 
