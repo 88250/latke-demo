@@ -72,6 +72,8 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <finalName>latke-demo</finalName>
     </build>
     
     <profiles>
