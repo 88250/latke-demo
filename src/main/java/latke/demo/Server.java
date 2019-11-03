@@ -19,6 +19,12 @@ public class Server extends BaseServer {
         Latkes.setScanPath(Server.class.getPackage().getName());
         Latkes.init();
 
+        final Server server = new Server();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            server.shutdown();
+            Latkes.shutdown();
+        }));
+
         final BeanManager beanManager = BeanManager.getInstance();
         final RegisterProcessor registerProcessor = beanManager.getReference(RegisterProcessor.class);
         // 附加一个使用函数式路由的示例
@@ -28,7 +34,6 @@ public class Server extends BaseServer {
         // 初始化数据库表
         JdbcRepositories.initAllTables();
 
-        final Server server = new Server();
         server.start(8080);
     }
 }

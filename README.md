@@ -4,12 +4,8 @@
 
 ## 运行
 
-将项目导入 IDE，通过 `mvn install` 编译后有两种方式启动：
-
-1. 通过 Maven Jetty 插件：`mvn jetty:run`
-2. 直接运行 Starter：
-   * Windows: `java -cp "target/latke-demo/WEB-INF/lib/*;target/latke-demo/WEB-INF/classes" latke.demo.Server`
-   * Linux: `java -cp "target/latke-demo/WEB-INF/lib/*:target/latke-demo/WEB-INF/classes" latke.demo.Server`
+1. 编译：`mvn install` 
+2. 启动：`java -jar target/latke-demo.jar`
 
 打开浏览器访问 `http://localhost:8080`。
 
