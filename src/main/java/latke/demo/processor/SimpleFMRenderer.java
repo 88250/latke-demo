@@ -3,20 +3,18 @@ package latke.demo.processor;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
+import org.b3log.latke.http.RequestContext;
+import org.b3log.latke.http.renderer.AbstractFreeMarkerRenderer;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
-import org.b3log.latke.servlet.AbstractServletListener;
-import org.b3log.latke.servlet.RequestContext;
-import org.b3log.latke.servlet.renderer.AbstractFreeMarkerRenderer;
 
-import javax.servlet.ServletContext;
 import java.util.TimeZone;
 
 /**
  * Simple FreeMarker template renderer.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.0, Sep 30, 2018
+ * @version 2.0.0.0, Nov 3, 2019
  * @since 2.0.0
  */
 public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
@@ -29,11 +27,10 @@ public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
     public static final Configuration SKIN;
 
     static {
-        final ServletContext servletContext = AbstractServletListener.getServletContext();
-        SKIN = new Configuration(Configuration.VERSION_2_3_28);
+        SKIN = new Configuration(Configuration.VERSION_2_3_29);
         SKIN.setDefaultEncoding("UTF-8");
         SKIN.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        SKIN.setServletContextForTemplateLoading(servletContext, "skins/classic");
+        SKIN.setClassForTemplateLoading(SimpleFMRenderer.class, "skins/classic");
         SKIN.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         SKIN.setLogTemplateExceptions(false);
     }

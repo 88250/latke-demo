@@ -9,9 +9,8 @@
     <name>Latke Demo</name>
 
     <properties>
-        <latke.version>2.5.3</latke.version>
+        <latke.version>2.5.9-SNAPSHOT</latke.version>
 
-        <servlet.version>3.1.0</servlet.version>
         <slf4j.version>1.7.24</slf4j.version>
         <jetty.version>9.4.12.v20180830</jetty.version>
 
@@ -26,12 +25,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
         </dependency>
 
         <dependency>
@@ -53,7 +46,7 @@
         </dependency>
 
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -75,7 +68,7 @@
 
         <finalName>latke-demo</finalName>
     </build>
-    
+
     <profiles>
         <profile>
             <id>ci</id>

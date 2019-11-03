@@ -8,8 +8,8 @@
 
 1. 通过 Maven Jetty 插件：`mvn jetty:run`
 2. 直接运行 Starter：
-   * Windows: `java -cp "target/latke-demo/WEB-INF/lib/*;target/latke-demo/WEB-INF/classes" latke.demo.Starter`
-   * Linux: `java -cp "target/latke-demo/WEB-INF/lib/*:target/latke-demo/WEB-INF/classes" latke.demo.Starter`
+   * Windows: `java -cp "target/latke-demo/WEB-INF/lib/*;target/latke-demo/WEB-INF/classes" latke.demo.Server`
+   * Linux: `java -cp "target/latke-demo/WEB-INF/lib/*:target/latke-demo/WEB-INF/classes" latke.demo.Server`
 
 打开浏览器访问 `http://localhost:8080`。
 

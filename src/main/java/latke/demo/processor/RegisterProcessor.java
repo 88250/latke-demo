@@ -2,13 +2,13 @@ package latke.demo.processor;
 
 import latke.demo.service.UserService;
 import org.apache.commons.lang.StringUtils;
+import org.b3log.latke.http.Request;
+import org.b3log.latke.http.RequestContext;
+import org.b3log.latke.http.annotation.RequestProcessing;
+import org.b3log.latke.http.annotation.RequestProcessor;
 import org.b3log.latke.ioc.Inject;
-import org.b3log.latke.servlet.RequestContext;
-import org.b3log.latke.servlet.annotation.RequestProcessing;
-import org.b3log.latke.servlet.annotation.RequestProcessor;
 import org.json.JSONObject;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -33,7 +33,7 @@ public class RegisterProcessor {
         context.setRenderer(new SimpleFMRenderer("register.ftl"));
         final Map<String, Object> dataModel = context.getRenderer().getRenderDataModel();
 
-        final HttpServletRequest request = context.getRequest();
+        final Request request = context.getRequest();
         final String name = request.getParameter("name");
         if (StringUtils.isNotBlank(name)) {
             dataModel.put("name", name);
