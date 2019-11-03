@@ -18,10 +18,10 @@
 -->
 <!--
     Description: Static resources definition.
-    Version: 1.0.0.0, Jul 5, 2013
+    Version: 1.0.0.1, Nov 3, 2019
     Author: Liang Ding
 -->
 <static-files>
-    <include path="/skins/**/logo.png" />
+    <include path="/template/**/logo.png" />
 </static-files>
 

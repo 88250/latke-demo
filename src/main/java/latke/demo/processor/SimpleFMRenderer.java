@@ -22,7 +22,7 @@ public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
     private static final Logger LOGGER = Logger.getLogger(SimpleFMRenderer.class);
 
     /**
-     * FreeMarker template configurations for skins (skins/).
+     * FreeMarker template configuration.
      */
     public static final Configuration SKIN;
 
@@ -30,7 +30,7 @@ public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
         SKIN = new Configuration(Configuration.VERSION_2_3_29);
         SKIN.setDefaultEncoding("UTF-8");
         SKIN.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        SKIN.setClassForTemplateLoading(SimpleFMRenderer.class, "/skins/classic");
+        SKIN.setClassForTemplateLoading(SimpleFMRenderer.class, "/template");
         SKIN.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
         SKIN.setLogTemplateExceptions(false);
     }

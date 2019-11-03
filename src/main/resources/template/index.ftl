@@ -2,7 +2,7 @@
 <html>
     <body>
         ${greeting}
-        <img src="${staticServePath}/skins/classic/images/logo.png" />
+        <img src="${staticServePath}/template/images/logo.png" />
 
         <div>
             Request URI: ${request.requestURI}
