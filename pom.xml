@@ -9,7 +9,7 @@
     <name>Latke Demo</name>
 
     <properties>
-        <latke.version>3.0.1-SNAPSHOT</latke.version>
+        <latke.version>3.0.3</latke.version>
 
         <slf4j.version>1.7.24</slf4j.version>
 
