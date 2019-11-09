@@ -29,7 +29,7 @@ public class RegisterProcessor {
         context.setRenderer(new SimpleFMRenderer("register.ftl"));
     }
 
-    public void register(final RequestContext context) { // 函数式路由，在 HelloServletListener 中配置
+    public void register(final RequestContext context) { // 函数式路由，在 Server 中配置
         context.setRenderer(new SimpleFMRenderer("register.ftl"));
         final Map<String, Object> dataModel = context.getRenderer().getRenderDataModel();
 
