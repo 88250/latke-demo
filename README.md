@@ -1,6 +1,6 @@
 # latke-demo
 
-[Latke](https://github.com/b3log/latke) 最小化示例，请结合文章 [Latke 快速上手指南](https://hacpai.com/article/1466870492857)进行研究。
+[Latke](https://github.com/88250/latke) 最小化示例，请结合文章 [Latke 快速上手指南](https://hacpai.com/article/1466870492857)进行研究。
 
 ## 运行
 
@@ -41,5 +41,5 @@
 
 ## 实际案例
 
-* [Solo](https://github.com/b3log/solo)：一款小而美的 Java 开源博客系统，专为程序员设计
-* [Symphony](https://github.com/b3log/symphony)：一款用 Java 实现的现代化社区（论坛/BBS/社交网络/博客）平台
+* [Solo](https://github.com/88250/solo)：一款小而美的 Java 开源博客系统，专为程序员设计
+* [Symphony](https://github.com/88250/symphony)：一款用 Java 实现的现代化社区（论坛/BBS/社交网络/博客）平台
