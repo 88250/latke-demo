@@ -1,12 +1,13 @@
 package latke.demo.processor;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.b3log.latke.http.HttpMethod;
 import org.b3log.latke.http.RequestContext;
 import org.b3log.latke.http.annotation.RequestProcessing;
 import org.b3log.latke.http.annotation.RequestProcessor;
-import org.b3log.latke.logging.Level;
-import org.b3log.latke.logging.Logger;
 import org.b3log.latke.util.Requests;
 
 import java.util.Date;
@@ -22,7 +23,7 @@ import java.util.Map;
 @RequestProcessor
 public class HelloProcessor {
 
-    private static final Logger LOGGER = Logger.getLogger(HelloProcessor.class);
+    private static final Logger LOGGER = LogManager.getLogger(HelloProcessor.class);
 
     @RequestProcessing("/")
     public void index(final RequestContext context) {

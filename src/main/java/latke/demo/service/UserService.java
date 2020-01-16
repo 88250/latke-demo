@@ -1,9 +1,10 @@
 package latke.demo.service;
 
 import latke.demo.repository.UserRepository;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.b3log.latke.ioc.Inject;
-import org.b3log.latke.logging.Level;
-import org.b3log.latke.logging.Logger;
 import org.b3log.latke.repository.RepositoryException;
 import org.b3log.latke.repository.annotation.Transactional;
 import org.b3log.latke.service.annotation.Service;
@@ -19,7 +20,7 @@ import org.json.JSONObject;
 @Service
 public class UserService {
 
-    private static final Logger LOGGER = Logger.getLogger(UserService.class);
+    private static final Logger LOGGER = LogManager.getLogger(UserService.class);
 
     @Inject
     private UserRepository userRepository;

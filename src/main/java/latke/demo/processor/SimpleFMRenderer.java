@@ -3,10 +3,11 @@ package latke.demo.processor;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateExceptionHandler;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.b3log.latke.http.RequestContext;
 import org.b3log.latke.http.renderer.AbstractFreeMarkerRenderer;
-import org.b3log.latke.logging.Level;
-import org.b3log.latke.logging.Logger;
 
 import java.util.TimeZone;
 
@@ -19,7 +20,7 @@ import java.util.TimeZone;
  */
 public final class SimpleFMRenderer extends AbstractFreeMarkerRenderer {
 
-    private static final Logger LOGGER = Logger.getLogger(SimpleFMRenderer.class);
+    private static final Logger LOGGER = LogManager.getLogger(SimpleFMRenderer.class);
 
     /**
      * FreeMarker template configuration.

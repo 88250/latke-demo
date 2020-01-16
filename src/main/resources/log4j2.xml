@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>[%highlight{%-5p}]-[%d{yyyy-MM-dd HH:mm:ss}]-[%c:%L]: %m%n</pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="Info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <Logger name="latke.demo" level="Trace"/>
+        <Logger name="org.b3log.latke" level="Info"/>
+        <Logger name="org.b3log.latke.repository.jdbc.util" level="Info"/>
+        <Logger name="io.netty" level="Warn"/>
+        <Logger name="freemarker" level="Warn"/>
+        <Logger name="com.zaxxer" level="Warn"/>
+
+    </Loggers>
+</Configuration>
