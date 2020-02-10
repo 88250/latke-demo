@@ -4,10 +4,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.b3log.latke.http.HttpMethod;
 import org.b3log.latke.http.RequestContext;
-import org.b3log.latke.http.annotation.RequestProcessing;
-import org.b3log.latke.http.annotation.RequestProcessor;
+import org.b3log.latke.ioc.Singleton;
 import org.b3log.latke.util.Requests;
 
 import java.util.Date;
@@ -17,15 +15,14 @@ import java.util.Map;
  * Hello.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 2.0.0.0, Nov 3, 2019
+ * @version 2.0.0.0, Feb 10, 2020
  * @since 2.0.0
  */
-@RequestProcessor
+@Singleton
 public class HelloProcessor {
 
     private static final Logger LOGGER = LogManager.getLogger(HelloProcessor.class);
 
-    @RequestProcessing("/")
     public void index(final RequestContext context) {
         context.setRenderer(new SimpleFMRenderer("index.ftl"));
 
@@ -35,7 +32,6 @@ public class HelloProcessor {
         Requests.log(context.getRequest(), Level.DEBUG, LOGGER);
     }
 
-    @RequestProcessing(value = "/greeting", method = {HttpMethod.GET, HttpMethod.POST})
     public void greeting(final RequestContext context) {
         context.setRenderer(new SimpleFMRenderer("hello.ftl"));
 

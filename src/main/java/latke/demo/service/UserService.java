@@ -14,7 +14,7 @@ import org.json.JSONObject;
  * User service.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.0.0.2, Sep 30, 2018
+ * @version 1.0.0.3, Feb 10, 2020
  * @since 2.0.0
  */
 @Service
@@ -42,6 +42,6 @@ public class UserService {
             throw new IllegalStateException("Saves user failed");
         }
 
-        LOGGER.log(Level.INFO, "Saves a user successfully [userId={0}]", userId);
+        LOGGER.log(Level.INFO, "Saves a user successfully [userId={}]", userId);
     }
 }

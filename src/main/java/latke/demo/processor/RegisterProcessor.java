@@ -4,9 +4,8 @@ import latke.demo.service.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.http.Request;
 import org.b3log.latke.http.RequestContext;
-import org.b3log.latke.http.annotation.RequestProcessing;
-import org.b3log.latke.http.annotation.RequestProcessor;
 import org.b3log.latke.ioc.Inject;
+import org.b3log.latke.ioc.Singleton;
 import org.json.JSONObject;
 
 import java.util.Map;
@@ -15,16 +14,15 @@ import java.util.Map;
  * Register.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.2.0.0, Dec 21, 2018
+ * @version 2.0.0.0, Feb 10, 2020
  * @since 2.0.0
  */
-@RequestProcessor
+@Singleton
 public class RegisterProcessor {
 
     @Inject
     private UserService userService;
 
-    @RequestProcessing(value = "/register")
     public void showRegister(final RequestContext context) {
         context.setRenderer(new SimpleFMRenderer("register.ftl"));
     }
@@ -42,7 +40,6 @@ public class RegisterProcessor {
         }
     }
 
-    @RequestProcessing("/var/{pathVar}")
     public void paraPathVar(final RequestContext context) {
         final String paraVar = context.param("paraVar");
         final String pathVar = context.pathVar("pathVar");

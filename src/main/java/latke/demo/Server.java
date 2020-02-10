@@ -1,5 +1,6 @@
 package latke.demo;
 
+import latke.demo.processor.HelloProcessor;
 import latke.demo.processor.RegisterProcessor;
 import org.b3log.latke.Latkes;
 import org.b3log.latke.http.BaseServer;
@@ -27,10 +28,17 @@ public class Server extends BaseServer {
             Latkes.shutdown();
         }));
 
-        // 使用函数式路由的示例
         final BeanManager beanManager = BeanManager.getInstance();
+        final HelloProcessor helloProcessor = beanManager.getReference(HelloProcessor.class);
         final RegisterProcessor registerProcessor = beanManager.getReference(RegisterProcessor.class);
-        Dispatcher.post("/register", registerProcessor::register);
+
+        // 配置路由
+        final Dispatcher.RouterGroup routeGroup = Dispatcher.group();
+        routeGroup.get("/", helloProcessor::index).
+                get("/register", registerProcessor::showRegister).
+                post("/register", registerProcessor::register).
+                get("/var/{pathVar}", registerProcessor::paraPathVar).
+                router().get().post().uri("/greeting").handler(helloProcessor::greeting);
         Dispatcher.mapping();
 
         server.start(8080);
