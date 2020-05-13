@@ -9,7 +9,7 @@
     <name>Latke Demo</name>
 
     <properties>
-        <latke.version>3.3.6</latke.version>
+        <latke.version>3.4.0</latke.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
