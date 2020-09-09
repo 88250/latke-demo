@@ -1,6 +1,6 @@
 # latke-demo
 
-[Latke](https://github.com/88250/latke) 最小化示例，请结合文章 [Latke 快速上手指南](https://hacpai.com/article/1466870492857)进行研究。
+[Latke](https://github.com/88250/latke) 最小化示例，请结合文章 [Latke 快速上手指南](https://ld246.com/article/1466870492857)进行研究。
 
 ## 运行
 
